@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "3810e2f8-6e59-4a31-9728-6317398c7505",
+		"name": "User Skills",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22744766"
+	},
+	"item": [
+		{
+			"name": "Search Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/users?skill=javascript",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "skill",
+							"value": "javascript"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/users/018844b4-4df0-5ec5-7bb2-c77fca7d9a0b",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"018844b4-4df0-5ec5-7bb2-c77fca7d9a0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"John Smith\",\n    \"age\" : 25,\n    \"birthDate\" : \"1998-01-02\",\n    \"address\" : \"New Street 55\",\n    \"email\" : \"john@gmail.com\",\n    \"skills\" : [ \"python\", \"javascript\" ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"John Smith\",\n    \"age\" : 25,\n    \"birthDate\" : \"1998-01-02\",\n    \"address\" : \"New Street 55\",\n    \"email\" : \"john@gmail.com\",\n    \"skills\" : [ \"python\", \"javascript\", \"ux\" ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/users/018844b4-4df0-5ec5-7bb2-c77fca7d9a0b",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"018844b4-4df0-5ec5-7bb2-c77fca7d9a0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/users/018844b4-4df0-5ec5-7bb2-c77fca7d9a0b",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"018844b4-4df0-5ec5-7bb2-c77fca7d9a0b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

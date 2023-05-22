@@ -1,0 +1,36 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+    <changeSet id="SKILL-1" author="diogob">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="SKILL"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="SKILL">
+            <column name="ID" type="BINARY(16)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SKILL"/>
+            </column>
+            <column name="NAME" type="VARCHAR(200)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="UK_SKILL_NAME"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="SKILL-2" author="diogob">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists indexName="IDX_SKILL_NAME"/>
+            </not>
+        </preConditions>
+        <createIndex indexName="IDX_SKILL_NAME" tableName="SKILL">
+            <column name="NAME"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

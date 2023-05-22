@@ -1,0 +1,55 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+    <changeSet id="USER-SKILL-1" author="diogob">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="USER_SKILL"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="USER_SKILL">
+            <column name="USER_ID" type="BINARY(16)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_SKILL"/>
+            </column>
+            <column name="SKILL_ID" type="BINARY(16)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_SKILL"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="USER-SKILL-2" author="diogob">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_USER_ID"
+                                            foreignKeyTableName="USER_SKILL" />
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint
+                constraintName="FK_USER_ID"
+                baseColumnNames="USER_ID"
+                baseTableName="USER_SKILL"
+                referencedColumnNames="ID"
+                referencedTableName="USER"/>
+    </changeSet>
+
+    <changeSet id="USER-SKILL-3" author="diogob">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_SKILL_ID"
+                                            foreignKeyTableName="USER_SKILL" />
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint
+                constraintName="FK_SKILL_ID"
+                baseColumnNames="SKILL_ID"
+                baseTableName="USER_SKILL"
+                referencedColumnNames="ID"
+                referencedTableName="SKILL"/>
+    </changeSet>
+
+</databaseChangeLog>
